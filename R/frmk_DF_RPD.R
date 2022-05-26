@@ -1,5 +1,5 @@
 
-#' Makes data frame from csvfile
+#' Makes data frame from csvfile.
 #'
 #'@param csvfile A name of the csvfile
 #'
@@ -7,7 +7,7 @@
 #'@export
 #'
 #'@examples
-#'DF <- frmk_DF_RPD("D:/rpdtls/data/MH_20220313Cow00.csv")
+#'DF <- frmk_DF_RPD("MH_20220313Cow00.csv")
 #'str(DF)
 #'head(DF)
 #'View(DF)

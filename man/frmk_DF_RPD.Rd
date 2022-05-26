@@ -12,12 +12,12 @@ frmk_DF_RPD(csvfile)
 return A data frame}
 }
 \description{
-Makes data frame from csvfile
+Makes data frame from csvfile.
 }
 \examples{
-DF <- frmk_DF_RPD("D:/rpdtls/csv/MH_20220313Cow00.csv")
+DF <- frmk_DF_RPD("MH_20220313Cow00.csv")
 str(DF)
 head(DF)
-view(DF)
+View(DF)
 
 }
