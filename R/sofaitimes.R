@@ -16,8 +16,8 @@ sofaitimes <- function(DF){
   sofaitimes = 0
   #browser()
   for(i in 1:nrow(DF)){
-    aitime <- DF[i,11]  #授精回数を取り出す
-    sofaitimes <- sofaitimes + aitime
+    aitimes <- DF[i,11]  #授精回数を取り出す
+    sofaitimes <- sofaitimes + aitimes
   }
   sofaitimes <- as.numeric(sofaitimes)
 }
