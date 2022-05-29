@@ -4,7 +4,7 @@ Version: 0.0.0.9000
 Authors@R: 
     person("Jun", "Inoue", , "inouecowclinic@gmail.com", role = c("aut", "cre"))
 Description: Convenience functions to organize reproductive data.
-Imports:tidyverse,
+Imports: tidyverse,
         readr,
         vroom
 License: MIT + file LICENSE
@@ -14,3 +14,6 @@ RoxygenNote: 7.1.2
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+Depends: 
+    R (>= 2.10)
+LazyData: true
