@@ -14,7 +14,7 @@ double total conception rate (\%)
 }
 \description{
 (the_number_of_pregnant_cows /
-(the_number_of_AIs -  the_number_of_unknown_pregnant_AIs))*100 \%
+(the_number_of_AIs -  the_number_of_nonpregnant_AIs))*100 \%
 }
 \examples{
 ttl_CR <- ttl_cr(DF)

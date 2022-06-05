@@ -12,7 +12,7 @@
 
 
 hsofpreg <- function(DF){
- #default of hsofpreg（heads of pregnancy)
+ #default of hsofpreg（hheads of pregnancy)
   #browser()
   hsofpreg = 0
  for(i in 1:nrow(DF)){
