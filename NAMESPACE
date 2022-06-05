@@ -3,6 +3,7 @@
 export(hsofpreg)
 export(nof_unkpr_ai)
 export(nofunkpr_ai)
+export(quotient_21)
 export(sofaitimes)
 export(ttl_cr)
 export(ttlcr)
