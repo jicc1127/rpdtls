@@ -21,13 +21,13 @@ The_days_of_opencow - VWP devide by 21
 }
 \examples{
 quotient_10 <- quotient_21(DF, 50, 10 )
-print("quotient_10")
+quotient_10
 print("Group 1")
 quotient_40 <- quotient_21(DF, 50, 40 )
-print("quotient_40")
+quotient_40
 print("Group 4")
 quotient_80 <- quotient_21(DF, 50, 80 )
-print("quotient_80")
+quotient_80
 print("Group 5")
 
 }
