@@ -1,6 +1,6 @@
 #' Get the sum of cycles
 #'
-#' @param DF Dataframe of the farms' reproduction data
+#' @param DF A Dataframe of the farms' reproduction data
 #' @param VWP Voluntary Waiting Period
 #'
 #' @return the sum of cycles

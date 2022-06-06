@@ -1,4 +1,4 @@
-#' Count the number of unknown pregnancy AI
+#' Count the number of the unknown pregnancy AI
 #'
 #'This return is the total of unknown pregnant Cows' AItimes
 #'

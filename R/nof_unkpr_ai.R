@@ -1,6 +1,6 @@
-#' Count the number of unknown pregnancy AI
+#' Count the number of the unknown pregnancy AI
 #'
-#' This return is the number of the nonpregnant AI
+#' This return is the number of the unknown pregnancy AI
 #'
 #' @param DF Dataframe of the farms' reproduction data
 #'

@@ -7,7 +7,7 @@
 sofcycles(DF, VWP)
 }
 \arguments{
-\item{DF}{Dataframe of the farms' reproduction data}
+\item{DF}{A Dataframe of the farms' reproduction data}
 
 \item{VWP}{Voluntary Waiting Period}
 }
