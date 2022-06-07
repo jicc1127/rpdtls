@@ -2,7 +2,7 @@
 % Please edit documentation in R/nofunkpr_ai.R
 \name{nofunkpr_ai}
 \alias{nofunkpr_ai}
-\title{Count the number of unknown pregnancy AI}
+\title{Count the number of the unknown pregnancy AI}
 \usage{
 nofunkpr_ai(DF)
 }

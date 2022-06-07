@@ -2,7 +2,7 @@
 % Please edit documentation in R/nof_unkpr_ai.R
 \name{nof_unkpr_ai}
 \alias{nof_unkpr_ai}
-\title{Count the number of unknown pregnancy AI}
+\title{Count the number of the unknown pregnancy AI}
 \usage{
 nof_unkpr_ai(DF)
 }
@@ -13,7 +13,7 @@ nof_unkpr_ai(DF)
 integer
 }
 \description{
-This return is the number of the nonpregnant AI
+This return is the number of the unknown pregnancy AI
 }
 \examples{
 nof_unkpr_ai <- nof_unkpr_ai(DF)

@@ -1,10 +1,10 @@
 #' Total AI rate
 #'
-#' omit the number ofthe unknown pregnant Cow's AIs
+#' omit the unknown pregnancy cycles
 #'
-#' (the_number_of_AIs -  the_number_of_unknown_pregnantCows'_AIs /
+#' (the_number_of_AIs -  the_number_of_nonpregnant_AIs /
 #'  (the_number_of_cycles -
-#'             the_number_of_the_unknown_pregnant_Cow's_cycles ))*100 %
+#'              the_number_of_the_unknown_pregnancy_cycles ))*100 %
 #'
 #' @param DF Dataframe of the farms' reproduction data
 #' @param VWP Voluntary Waiting Period
@@ -13,22 +13,22 @@
 #' @export
 #'
 #' @examples
-#' ttlAIR <- ttlair(DF, 50)
-#' ttlAIR
+#' ttl_AIR <- ttl_air(DF, 50)
+#' ttl_AIR
 #'
 
-ttlair <- function(DF, VWP){
+ttl_air <- function(DF, VWP){
 
   #Sum up the number of AItimes
   sofaitimes <- sofaitimes(DF)
   #Count the number of unknown pregnancy AI
-  nofunkpr_ai <- nofunkpr_ai(DF)
+  nof_unkpr_ai <- nof_unkpr_ai(DF)
   #Get the sum of cycles
   sofcycles <- sofcycles(DF, VWP)
   #Count the number of the unknown pregnancy cycle
-  snofunkpr_cycles <- snofunkpr_cycles(DF, VWP)
+  snof_unkpr_cycles <- snof_unkpr_cycles(DF)
 
   #calculate the total conception rate
-  ttlair <- ((sofaitimes - nofunkpr_ai) / (sofcycles - snofunkpr_cycles)) * 100
+  ttl_air <- ((sofaitimes - nof_unkpr_ai) / (sofcycles - snof_unkpr_cycles)) * 100
 
 }
