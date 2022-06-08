@@ -12,13 +12,13 @@ jmr(DF, VWP)
 \item{VWP}{int Voluntary Waiting Period}
 }
 \value{
-
+double JMR
 }
 \description{
 JMR
 }
 \examples{
-jmr(DF,50)
+jmr <- jmr(DF,50)
 jmr
 
 }

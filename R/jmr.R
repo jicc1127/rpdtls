@@ -3,11 +3,11 @@
 #' @param DF Dataframe of the farms' reproduction data
 #' @param VWP int Voluntary Waiting Period
 #'
-#' @return
+#' @return double JMR
 #' @export
 #'
 #' @examples
-#' jmr(DF,50)
+#' jmr <- jmr(DF,50)
 #' jmr
 #'
 jmr <- function(DF, VWP){
