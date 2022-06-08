@@ -15,7 +15,7 @@ ttlair(DF, VWP)
 double total AI rate (\%)
 }
 \description{
-omit the number ofthe unknown pregnant Cow's AIs
+omit the number of the unknown pregnant Cow's AIs
 }
 \details{
 (the_number_of_AIs -  the_number_of_unknown_pregnantCows'_AIs /

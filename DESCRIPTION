@@ -4,9 +4,10 @@ Version: 0.0.0.9000
 Authors@R: 
     person("Jun", "Inoue", , "inouecowclinic@gmail.com", role = c("aut", "cre"))
 Description: Convenience functions to organize reproductive data.
-Imports: tidyverse,
-        readr,
-        vroom
+Imports: 
+      tidyverse,
+      readr,
+      vroom
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
