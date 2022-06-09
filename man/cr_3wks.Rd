@@ -13,7 +13,9 @@ cr_3wks(DF)
 double conception rate (\%)
 }
 \description{
-Conception Rate in the last 3 weeks
+(heads_of_pregnancy /
+(the_sum_of_AI -  the_sum_of_the_unknown_pregnant_AI))*100 \%
+...in_the_last_3weeks
 }
 \examples{
 cr_3wks <- cr_3wks(DF)
