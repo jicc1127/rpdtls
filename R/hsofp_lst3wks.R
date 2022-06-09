@@ -21,7 +21,7 @@ hsofp_lst3wks <- function(DF){
       Group <- DF[i,2]   #get the value of column "Group"
       if(Group==5){   #pregnant(5)
         hsofp_lst3wks = hsofp_lst3wks + 1
-      }else{    #unknoun pregnant(4) or nonpregnant(1,2,3)
+      }else{    #unknown pregnant(4) or nonpregnant(1,2,3)
         #nothing
       }
 
