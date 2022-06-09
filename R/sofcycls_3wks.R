@@ -29,8 +29,8 @@ sofcycls_3wks <- function(DF){
       #  -> PT- -> Cycls3ws = 1 and NofAIS3wks = 0
       #     PT+ -> Cycls3ws = 0
       #     This case is cycls_3wks = 1(#*),
-      #     but this value is offset by unkpcycles
-      #     (subtract unknown_pregnancy_cycle =1 )
+      #     but this value is offset by unkpcycls_3wks
+      #     (subtract unknown_pregnancy_cycle_3wks =1 )
 
     }else if(Group >= 5){
       daysfrmlstAI <- DF[i,15]  #get the days from the last AI
