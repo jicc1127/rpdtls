@@ -33,7 +33,7 @@ DFH <- readr::read_csv( "data-raw/MH_20220313Heifer00.csv",
                                         vroom::col_date( format = "%Y/%m/%d" ),
                                         #expDateofnextCalving
                                         vroom::col_double(),
-                                        #openmonths : open cow in month
+                                        #openmonths : open heifer in month
                                         vroom::col_date( format = "%Y/%m/%d" )))
                                         #base_date
 
