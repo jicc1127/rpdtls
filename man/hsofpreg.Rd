@@ -19,4 +19,6 @@ Count the heads of pregnancy
 DF
 hsofpreg <- hsofpreg(DF)
 hsofpreg
+hsofpregH <- hsofpreg(DFH)
+hsofpregH
 }
