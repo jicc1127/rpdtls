@@ -1,4 +1,5 @@
 #' Count the heads of pregnancy
+#' for Cows and Heifers
 #'
 #' @param DF Dataframe of the farms' reproduction data
 #'

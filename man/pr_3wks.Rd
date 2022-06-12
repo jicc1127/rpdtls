@@ -2,7 +2,8 @@
 % Please edit documentation in R/pr_3wks.R
 \name{pr_3wks}
 \alias{pr_3wks}
-\title{The pregnancy rate in the last 3 weeks}
+\title{The pregnancy rate in the last 3 weeks
+for Cows and Heifers}
 \usage{
 pr_3wks(DF)
 }
@@ -13,7 +14,17 @@ pr_3wks(DF)
 double pregnancy rate in the 3 weeks(\%)
 }
 \description{
-((the_AI_rate_in_the_lst3wks / 100) *
+(the_number_of_AIs -  the_number_of_unknown_pregnantCows'_AIs /
+(the_number_of_cycles -
+the_number_of_the_unknown_pregnant_Cow's_cycles ))*
+(the_number_of_pregnant_cows /
+(the_number_of_AIs -  the_number_of_unknown_pregnantCows'_AIs))*100 \%
+}
+\details{
+= (the_number_of_pregnant_cows_3wks) / (the_number_of_cycles_3wks -
+the_number_of_the_unknown_pregnant_Cow's_cycles_3wks ) * 100 \%
+
+= ((the_AI_rate_in_the_lst3wks / 100) *
 (the_coception_rate_in_the_lst3wks / 100)) * 100(\%)
 }
 \examples{

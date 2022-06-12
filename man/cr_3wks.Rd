@@ -2,7 +2,11 @@
 % Please edit documentation in R/cr_3wks.R
 \name{cr_3wks}
 \alias{cr_3wks}
-\title{Conception Rate in the last 3 weeks}
+\title{Conception Rate in the last 3 weeks
+for Cows and Heifers
+(heads_of_pregnancy /
+(the_sum_of_AI -  the_sum_of_the_unknown_pregnant_AI))*100 \%
+...in_the_last_3weeks}
 \usage{
 cr_3wks(DF)
 }
@@ -13,6 +17,8 @@ cr_3wks(DF)
 double conception rate (\%)
 }
 \description{
+Conception Rate in the last 3 weeks
+for Cows and Heifers
 (heads_of_pregnancy /
 (the_sum_of_AI -  the_sum_of_the_unknown_pregnant_AI))*100 \%
 ...in_the_last_3weeks

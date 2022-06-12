@@ -2,7 +2,8 @@
 % Please edit documentation in R/hsofp_lst3wks.R
 \name{hsofp_lst3wks}
 \alias{hsofp_lst3wks}
-\title{Heads of pregnancy in the last 3 weeks}
+\title{Heads of pregnancy in the last 3 weeks
+for Cows and Heifers}
 \usage{
 hsofp_lst3wks(DF)
 }
@@ -14,6 +15,7 @@ int heads of pregnancy
 }
 \description{
 Heads of pregnancy in the last 3 weeks
+for Cows and Heifers
 }
 \examples{
  hsofp_lst3wks <- hsofp_lst3wks(DF)

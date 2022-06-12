@@ -1,5 +1,5 @@
 #' The AI rate in the last 3 weeks
-#'
+#' for Cows and Heifers
 #'
 #' ((the_sum_of_AI -  the_sum_of_the_unknown_pregnant_AI) /
 #'  (the_number_of_cycles -

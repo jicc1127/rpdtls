@@ -1,5 +1,5 @@
 #' Count the number of the unknown pregnancy cycle
-#'
+#' for Cow
 #'This return is the total of unknown pregnant Cows' cycles
 #'
 #' @param DF Dataframe of the farms' reproduction data

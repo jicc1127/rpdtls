@@ -1,5 +1,5 @@
 #' Conception Rate in the last 3 weeks
-#'
+#' for Cows and Heifers
 #' (heads_of_pregnancy /
 #'    (the_sum_of_AI -  the_sum_of_the_unknown_pregnant_AI))*100 %
 #'    ...in_the_last_3weeks

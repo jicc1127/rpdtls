@@ -2,7 +2,9 @@
 % Please edit documentation in R/snofunkpr_cycles.R
 \name{snofunkpr_cycles}
 \alias{snofunkpr_cycles}
-\title{Count the number of the unknown pregnancy cycle}
+\title{Count the number of the unknown pregnancy cycle
+for Cow
+This return is the total of unknown pregnant Cows' cycles}
 \usage{
 snofunkpr_cycles(DF, VWP)
 }
@@ -15,6 +17,8 @@ snofunkpr_cycles(DF, VWP)
 the total number of the unknown pregnant cows' cycles
 }
 \description{
+Count the number of the unknown pregnancy cycle
+for Cow
 This return is the total of unknown pregnant Cows' cycles
 }
 \examples{

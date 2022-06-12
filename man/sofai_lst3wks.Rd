@@ -2,7 +2,8 @@
 % Please edit documentation in R/sofai_lst3wks.R
 \name{sofai_lst3wks}
 \alias{sofai_lst3wks}
-\title{Sum of AItimes in the last 3 weeks}
+\title{Sum of AItimes in the last 3 weeks
+for Cows and Heifers}
 \usage{
 sofai_lst3wks(DF)
 }
@@ -14,6 +15,7 @@ int AItimes
 }
 \description{
 Sum of AItimes in the last 3 weeks
+for Cows and Heifers
 }
 \examples{
 sofai_lst3wks <- sofai_lst3wks(DF)

@@ -1,5 +1,5 @@
 #' Count the number of the unknown pregnancy AI
-#'
+#' for Cow and Heifer
 #'This return is the total of unknown pregnant Cows' AItimes
 #'
 #' @param DF Dataframe of the farms' reproduction data

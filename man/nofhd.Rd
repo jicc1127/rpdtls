@@ -2,7 +2,9 @@
 % Please edit documentation in R/nofhd.R
 \name{nofhd}
 \alias{nofhd}
-\title{The number of head}
+\title{The number of head
+for Cow and Heifer
+DF needs to have only breeding cows or heifers(Group 1 _ 6)}
 \usage{
 nofhd(DF)
 }
@@ -14,6 +16,8 @@ int The number of head
 }
 \description{
 The number of head
+for Cow and Heifer
+DF needs to have only breeding cows or heifers(Group 1 _ 6)
 }
 \examples{
 nofhd <- nofhd(DF)

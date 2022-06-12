@@ -2,7 +2,9 @@
 % Please edit documentation in R/ttl_air.R
 \name{ttl_air}
 \alias{ttl_air}
-\title{Total AI rate}
+\title{Total AI rate
+for Cow
+omit the unknown pregnancy cycles}
 \usage{
 ttl_air(DF, VWP)
 }
@@ -15,9 +17,6 @@ ttl_air(DF, VWP)
 double total AI rate (\%)
 }
 \description{
-omit the unknown pregnancy cycles
-}
-\details{
 (the_number_of_AIs -  the_number_of_nonpregnant_AIs /
 (the_number_of_cycles -
 the_number_of_the_unknown_pregnancy_cycles ))*100 \%

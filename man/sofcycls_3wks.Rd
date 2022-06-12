@@ -2,7 +2,8 @@
 % Please edit documentation in R/sofcycls_3wks.R
 \name{sofcycls_3wks}
 \alias{sofcycls_3wks}
-\title{The sum of cycles in the last 3weeks}
+\title{The sum of cycles in the last 3weeks
+for Cows and Heifers}
 \usage{
 sofcycls_3wks(DF)
 }
@@ -14,6 +15,7 @@ int the sum of cycles in the last 3weeks
 }
 \description{
 The sum of cycles in the last 3weeks
+for Cows and Heifers
 }
 \examples{
 sofcycls_3wks <- sofcycls_3wks(DF)

@@ -2,7 +2,10 @@
 % Please edit documentation in R/ttl_cr.R
 \name{ttl_cr}
 \alias{ttl_cr}
-\title{Total conception rate}
+\title{Total conception rate
+for Cow and Heifer
+(the_number_of_pregnant_cows /
+(the_number_of_AIs -  the_number_of_nonpregnant_AIs))*100 \%}
 \usage{
 ttl_cr(DF)
 }
@@ -13,6 +16,8 @@ ttl_cr(DF)
 double total conception rate (\%)
 }
 \description{
+Total conception rate
+for Cow and Heifer
 (the_number_of_pregnant_cows /
 (the_number_of_AIs -  the_number_of_nonpregnant_AIs))*100 \%
 }

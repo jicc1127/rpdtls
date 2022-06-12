@@ -2,7 +2,8 @@
 % Please edit documentation in R/sofaitimes.R
 \name{sofaitimes}
 \alias{sofaitimes}
-\title{Sum up the number of column"AItimes"}
+\title{Sum up the number of column"AItimes"
+for Cow and Heifer}
 \usage{
 sofaitimes(DF)
 }
@@ -14,6 +15,7 @@ integer
 }
 \description{
 Sum up the number of column"AItimes"
+for Cow and Heifer
 }
 \examples{
 sofaitimes <- sofaitimes(DF)

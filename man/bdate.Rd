@@ -2,7 +2,8 @@
 % Please edit documentation in R/bdate.R
 \name{bdate}
 \alias{bdate}
-\title{The base date}
+\title{The base date
+for Cows and Heifers}
 \usage{
 bdate(DF)
 }
@@ -14,6 +15,7 @@ date the base date
 }
 \description{
 The base date
+for Cows and Heifers
 }
 \examples{
 bdate <- bdate(DF)

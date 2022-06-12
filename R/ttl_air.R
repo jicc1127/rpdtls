@@ -1,5 +1,5 @@
 #' Total AI rate
-#'
+#' for Cow
 #' omit the unknown pregnancy cycles
 #'
 #' (the_number_of_AIs -  the_number_of_nonpregnant_AIs /

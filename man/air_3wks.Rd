@@ -2,7 +2,8 @@
 % Please edit documentation in R/air_3wks.R
 \name{air_3wks}
 \alias{air_3wks}
-\title{The AI rate in the last 3 weeks}
+\title{The AI rate in the last 3 weeks
+for Cows and Heifers}
 \usage{
 air_3wks(DF)
 }

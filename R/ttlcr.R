@@ -1,5 +1,5 @@
 #' Total conception rate
-#'
+#' for Cow and Heifer
 #' (the_number_of_pregnant_cows /
 #'           (the_number_of_AIs -  the_number_of_unknown_pregnantCows'_AIs))*100 %
 #'

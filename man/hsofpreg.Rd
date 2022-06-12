@@ -2,7 +2,8 @@
 % Please edit documentation in R/hsofpreg.R
 \name{hsofpreg}
 \alias{hsofpreg}
-\title{Count the heads of pregnancy}
+\title{Count the heads of pregnancy
+for Cows and Heifers}
 \usage{
 hsofpreg(DF)
 }
@@ -14,6 +15,7 @@ integer
 }
 \description{
 Count the heads of pregnancy
+for Cows and Heifers
 }
 \examples{
 DF

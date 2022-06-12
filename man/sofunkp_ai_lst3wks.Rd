@@ -2,7 +2,8 @@
 % Please edit documentation in R/sofunkp_ai_lst3wks.R
 \name{sofunkp_ai_lst3wks}
 \alias{sofunkp_ai_lst3wks}
-\title{Sum of the unknown pregnant AI in the last 3 weeks}
+\title{Sum of the unknown pregnant AI in the last 3 weeks
+for Cows and Heifers}
 \usage{
 sofunkp_ai_lst3wks(DF)
 }
@@ -14,6 +15,7 @@ int AItimes in the last 3 weeks
 }
 \description{
 Sum of the unknown pregnant AI in the last 3 weeks
+for Cows and Heifers
 }
 \examples{
 sofunkp_ai_lst3wks <- sofunkp_ai_lst3wks(DF)

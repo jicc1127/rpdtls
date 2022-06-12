@@ -1,5 +1,5 @@
 #' JMR
-#'
+#' for Cow
 #' @param DF Dataframe of the farms' reproduction data
 #' @param VWP int Voluntary Waiting Period
 #'

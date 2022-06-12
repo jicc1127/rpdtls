@@ -2,7 +2,8 @@
 % Please edit documentation in R/jmr.R
 \name{jmr}
 \alias{jmr}
-\title{JMR}
+\title{JMR
+for Cow}
 \usage{
 jmr(DF, VWP)
 }
@@ -16,6 +17,7 @@ double JMR
 }
 \description{
 JMR
+for Cow
 }
 \examples{
 jmr <- jmr(DF,50)

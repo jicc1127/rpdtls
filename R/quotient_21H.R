@@ -23,9 +23,9 @@ quotient_21H <- function(DFH, VWP, i){
 
   VWP <- VWP*30 #change months to days
   OHM <- DFH[i, 17]  #get open heifer in month
-  OHM <- OHM*30 #change months to days
-  #OHM <- as.numeric(OHM) #, units="days"
-  OHM <- OHM[[1]]
-  quotient_21H <- (OHM - VWP) %/% 21
+  OHD <- OHM*30 #change months to days : open heifer in day
+  #OHD <- as.numeric(OHM) #, units="days"
+  OHD <- OHD[[1]]
+  quotient_21H <- (OHD - VWP) %/% 21
 
 }

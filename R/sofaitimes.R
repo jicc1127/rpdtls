@@ -1,5 +1,5 @@
 #' Sum up the number of column"AItimes"
-#'
+#' for Cow and Heifer
 #' @param DF Dataframe of the farms' reproduction data
 #'
 #' @return integer

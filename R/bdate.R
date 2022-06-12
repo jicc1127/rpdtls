@@ -1,4 +1,5 @@
 #' The base date
+#' for Cows and Heifers
 #'
 #' @param DF Dataframe of the farms' reproduction data
 #'

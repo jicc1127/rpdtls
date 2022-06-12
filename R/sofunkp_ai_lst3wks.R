@@ -1,4 +1,5 @@
 #' Sum of the unknown pregnant AI in the last 3 weeks
+#' for Cows and Heifers
 #'
 #' @param DF Dataframe of the farms' reproduction data
 #'

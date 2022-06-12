@@ -1,5 +1,5 @@
 #' Count the number of the unknown pregnancy cycle for Heifer
-#'
+#' for Heifer
 #'This return is the total of unknown pregnant Heifers' cycles
 #'
 #' @param DFH Dataframe of the farms' reproduction data
@@ -9,8 +9,8 @@
 #' @export
 #'
 #' @examples
-#' snofunkpr_cycles <- snofunkpr_cyclesH(DFH, 13)
-#' snofunkpr_cycles
+#' snofunkpr_cyclesH <- snofunkpr_cyclesH(DFH, 13)
+#' snofunkpr_cyclesH
 
 
 snofunkpr_cyclesH <- function(DFH, VWP){

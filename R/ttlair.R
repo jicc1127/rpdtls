@@ -1,5 +1,5 @@
 #' Total AI rate
-#'
+#' for Cow
 #' omit the number of the unknown pregnant Cow's AIs
 #'
 #' (the_number_of_AIs -  the_number_of_unknown_pregnantCows'_AIs /

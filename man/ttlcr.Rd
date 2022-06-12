@@ -2,7 +2,10 @@
 % Please edit documentation in R/ttlcr.R
 \name{ttlcr}
 \alias{ttlcr}
-\title{Total conception rate}
+\title{Total conception rate
+for Cow and Heifer
+(the_number_of_pregnant_cows /
+(the_number_of_AIs -  the_number_of_unknown_pregnantCows'_AIs))*100 \%}
 \usage{
 ttlcr(DF)
 }
@@ -13,6 +16,8 @@ ttlcr(DF)
 double total conception rate (\%)
 }
 \description{
+Total conception rate
+for Cow and Heifer
 (the_number_of_pregnant_cows /
 (the_number_of_AIs -  the_number_of_unknown_pregnantCows'_AIs))*100 \%
 }

@@ -22,9 +22,9 @@ remainder_21H <- function(DFH, VWP, i){
 
   VWP <- VWP*30 #change months to days
   OHM <- DFH[i, 17]  #get open heifer in month
-  OHM <- OHM*30 #change months to days
+  OHD <- OHM*30 #change months to days : open heifer in day
   #OHM <- as.numeric(OHM) #, units="days"
-  OHM <- OHM[[1]]
-  remainder_21H <- (OHM - VWP) %% 21
+  OHD <- OHD[[1]]
+  remainder_21H <- (OHD - VWP) %% 21
 
 }

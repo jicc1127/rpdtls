@@ -1,5 +1,5 @@
 #' Get the sum of cycles for Heifer
-#'
+#' for Heifer
 #' @param DFH A Dataframe of the farms' reproduction data
 #' @param VWP Voluntary Waiting Period (months)
 #'

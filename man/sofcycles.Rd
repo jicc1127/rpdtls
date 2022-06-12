@@ -2,7 +2,8 @@
 % Please edit documentation in R/sofcycles.R
 \name{sofcycles}
 \alias{sofcycles}
-\title{Get the sum of cycles}
+\title{Get the sum of cycles
+for Cow}
 \usage{
 sofcycles(DF, VWP)
 }
@@ -16,6 +17,7 @@ the sum of cycles
 }
 \description{
 Get the sum of cycles
+for Cow
 }
 \examples{
 

@@ -2,7 +2,8 @@
 % Please edit documentation in R/sofunkpcycls_3wks.R
 \name{sofunkpcycls_3wks}
 \alias{sofunkpcycls_3wks}
-\title{The sum of unknown pregnant cycles in the last 3 weeks}
+\title{The sum of unknown pregnant cycles in the last 3 weeks
+for Cows and Heifers}
 \usage{
 sofunkpcycls_3wks(DF)
 }
@@ -14,6 +15,7 @@ int the sum of unknown pregnant cycles in the last 3 weeks
 }
 \description{
 The sum of unknown pregnant cycles in the last 3 weeks
+for Cows and Heifers
 }
 \examples{
 sofunkpcycls_3wks <- sofunkpcycls_3wks(DF)
