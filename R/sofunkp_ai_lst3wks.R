@@ -19,7 +19,7 @@ sofunkp_ai_lst3wks<- function(DF){
     daysfrmlstAI <- DF[i, 15]    #get the days from the last AI
     if(is.na(daysfrmlstAI)){ #is.na(daysfrmlstAI) = TRUE...if Non
       #何もしない
-    }else if(daysfrmlstAI <= 21){
+    }else if(daysfrmlstAI < 21){
       Group <- DF[i,2]   #get the number of the column"Group"
       if(Group==4){   #unknown pregnancy
         sofunkp_ai_lst3wks = sofunkp_ai_lst3wks + 1

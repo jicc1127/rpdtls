@@ -31,7 +31,7 @@ pr_3wks <- function(DF){
   #Count the number of the unknown pregnancy cycle in the last 3 weeks
   snofunkpr_cycles <- sofunkpcycls_3wks(DF)
 
-  ttlprH <- (hsofpreg / (sofcycles - snofunkpr_cycles)) * 100
+  pr_3wks <- (hsofpreg / (sofcycles - snofunkpr_cycles)) * 100
 
   #get the AI rate in the last 3 weeks
   #air_3wks <- air_3wks(DF)

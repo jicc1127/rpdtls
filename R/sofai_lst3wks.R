@@ -18,7 +18,7 @@ sofai_lst3wks <- function(DF){
     daysfrmlstAI <- DF[i, 15]    #get the days from the last AI
     if(is.na(daysfrmlstAI)){ #is.na(daysfrmlstAI) = TRUE if Non
       #nothing
-    }else if(daysfrmlstAI <= 21){
+    }else if(daysfrmlstAI < 21){
       sofai_lst3wks = sofai_lst3wks + 1
     }else{
       #nothing

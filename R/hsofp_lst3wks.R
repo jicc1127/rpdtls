@@ -18,7 +18,7 @@ hsofp_lst3wks <- function(DF){
     daysfrmlstAI <- DF[i, 15]    #get the days from the last AI
     if(is.na(daysfrmlstAI)){ #is.na(daysfrmlstAI) = TRUE...if Non
       #nothing
-    }else if(daysfrmlstAI <= 21){
+    }else if(daysfrmlstAI < 21){
       Group <- DF[i,2]   #get the value of column "Group"
       if(Group==5){   #pregnant(5)
         hsofp_lst3wks = hsofp_lst3wks + 1

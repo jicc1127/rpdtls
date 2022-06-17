@@ -24,9 +24,9 @@ sofcycls_3wks <- function(DF){
       cycls_3wks <- 1
     }else if(Group == 4){          #pregnancy diagnosis waiting(4)
       cycls_3wks <- 1 #*
-      # 1)daysfrmlstAI(the days from the last AI)<=21
+      # 1)daysfrmlstAI(the days from the last AI)< 21
       #  -> Cycls3ws = 1 and NofAIs3wks = 1
-      # 2)daysfrmlstAI                           >21
+      # 2)daysfrmlstAI                           >= 21
       #  -> PT- -> Cycls3ws = 1 and NofAIS3wks = 0
       #     PT+ -> Cycls3ws = 0
       #     This case is cycls_3wks = 1(#*),
@@ -35,7 +35,7 @@ sofcycls_3wks <- function(DF){
 
     }else if(Group == 5 || Group == 6){
       daysfrmlstAI <- DF[i,15]  #get the days from the last AI
-      if (daysfrmlstAI <= 21){
+      if (daysfrmlstAI < 21){
         cycls_3wks <- 1  #NofAIs3wks = 1
       }else{
         cycls_3wks <- 0
