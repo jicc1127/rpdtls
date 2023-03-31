@@ -33,12 +33,15 @@ A dataset containing the reproductive data on some dairy farm
 }
 \details{
 %%  ~~ If necessary, more details than the __description__ above ~~
+None
 }
 \source{
 %%  ~~ reference to a publication or URL from which the data were obtained ~~
+None
 }
 \references{
 %%  ~~ possibly secondary sources and usages ~~
+None
 }
 \examples{
 data(DF)

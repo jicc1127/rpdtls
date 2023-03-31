@@ -26,7 +26,7 @@ pr_3wks <- function(DF){
 
   #Count the heads of pregnancy in the last 3 weeks
   hsofpreg <- hsofp_lst3wks(DF)
-  #Get the sum of cycles inthe last 3 weeks
+  #Get the sum of cycles in the last 3 weeks
   sofcycles <- sofcycls_3wks(DF)
   #Count the number of the unknown pregnancy cycle in the last 3 weeks
   snofunkpr_cycles <- sofunkpcycls_3wks(DF)
