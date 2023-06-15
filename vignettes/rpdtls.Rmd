@@ -9,7 +9,24 @@ vignette: >
   %\VignetteEncoding{UTF-8}
   
 ---
+#purpose
 
+This package aims to get the reproductive data of a dairy farm.
+
+#a nesessary data frame
+
+  1.Cows : DF
+
+   | LineNo | Group | Stage | Cowcode | CowGroup | cowidNo | birthday | parity | calving_date | daysfrmcalving | AItimes | firstAI_date | fstAIdaysfrmcalving | lastAI_date | daysfrmlstAI | expDateofnextCalving | opendays | base_date|
+
+   | LineNo | Group | Stage | 牛ｺｰﾄﾞ | 牛群 | 個体識別番号 | 生年月日 | 産次 | 分娩日 | 分娩後日数 | 授精回数 | 初回授精日 | 初回授精日数 | 最終授精日 | 授精後日数 | 分娩予定日 | 空胎日数 | 基準日 | 
+
+  1. Heifers : DFH
+
+   | LineNo | Group | Stage | Cowcode | CowGroup | cowidNo | birthday | parity | age_in_day | age_in_month | AItimes | firstAI_date | fstAI_age_in_month | lastAI_date | daysfrmlstAI | expDateofnextCalving | openmonths | base_date|
+
+   | LineNo | Group | Stage | 牛ｺｰﾄﾞ | 牛群 | 個体識別番号 | 生年月日 | 産次 | 日齢 | 月齢 | 授精回数 | 初回授精日 | 初回授精月齢 | 最終授精日 | 授精後日数 | 分娩予定日 | 空胎月数 | 基準日 |
+   
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -18,5 +35,84 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
+library(tidyverse)
+library(readr)
 library(rpdtls)
+```
+
+```{r ttl}
+DF <- readr::read_csv( "../data-raw/20230212Cow01.csv",
+                       col_types = list(vroom::col_integer(),
+                                        #LineNo
+                                        vroom::col_integer(),
+                                        #Group
+                                        vroom::col_character(),
+                                        #Stage
+                                        vroom::col_integer(),
+                                        #cowCode
+                                        vroom::col_character(),
+                                        #cowGroup
+                                        vroom::col_character(),
+                                        #cowidNo
+                                        vroom::col_date( format = "%Y/%m/%d" ),
+                                        #birthday
+                                        vroom::col_integer(),  #parity
+                                        vroom::col_date( format = "%Y/%m/%d" ),
+                                        #calving_date
+                                        vroom::col_integer(),  #daysfrmcalving
+                                        vroom::col_integer(),  #AItimes
+                                        vroom::col_date( format = "%Y/%m/%d" ),
+                                        #firstAI_date
+                                        vroom::col_integer(),
+                                        #fstAIdaysfrmcalving
+                                        vroom::col_date( format = "%Y/%m/%d" ),
+                                        #lastAI_date
+                                        vroom::col_integer(),  #daysfrmlstAI
+                                        vroom::col_date( format = "%Y/%m/%d" ),
+                                        #expDateofnextCalving
+                                        vroom::col_integer(),
+                                        #opendays
+                                        vroom::col_date( format = "%Y/%m/%d" )))
+                                        #base_date
+
+str(DF)
+head(DF)
+
+#str("../data/DF")
+#head("../data/DF")
+
+# 累計受胎率　=　(受胎頭数/(授精回数 - 妊否不明授精回数))*100(%)
+#	　　ttlCR = (hsofPreg/(sNofAIs - sPUnkNofAIs)*100 %
+
+#受胎頭数
+hsofpreg <- hsofpreg(DF)
+hsofpreg
+
+#授精回数の合計
+sofaitimes <- sofaitimes(DF)
+sofaitimes
+
+#妊否不明の授精回数
+nofunkpr_ai <- nofunkpr_ai(DF)
+nofunkpr_ai
+
+#累計受胎率
+ttlCR <- ttlcr(DF)
+ttlCR
+
+# 累計人工授精率 =  ((授精回数 - 妊不明の授精回数)/
+#                         (サイクル数 - 妊不明のサイクル数))*100(%) 
+
+#サイクル数の合計 VWP = 50
+sofcycles <- sofcycles(DF, 50)
+sofcycles
+
+#妊不明サイクル数の合計
+snofunkpr_cycles <- snofunkpr_cycles(DF, 50)
+snofunkpr_cycles
+
+#累計人工授精率(%)
+ttlAIR <- ttlair(DF, 50)
+ttlAIR
+
 ```
