@@ -9,20 +9,20 @@ vignette: >
   %\VignetteEncoding{UTF-8}
   
 ---
-#purpose
-
+#目的 purpose
+-----------------------------------------------------------------------------
 This package aims to get the reproductive data of a dairy farm.
 
-#a nesessary data frame
-
-  1.Cows : DF
-
+#必要なデータフレーム a necessary data frame
+-----------------------------------------------------------------------------
+  1.Cows : DF  
+    variables in the columns  
    | LineNo | Group | Stage | Cowcode | CowGroup | cowidNo | birthday | parity | calving_date | daysfrmcalving | AItimes | firstAI_date | fstAIdaysfrmcalving | lastAI_date | daysfrmlstAI | expDateofnextCalving | opendays | base_date|
 
    | LineNo | Group | Stage | 牛ｺｰﾄﾞ | 牛群 | 個体識別番号 | 生年月日 | 産次 | 分娩日 | 分娩後日数 | 授精回数 | 初回授精日 | 初回授精日数 | 最終授精日 | 授精後日数 | 分娩予定日 | 空胎日数 | 基準日 | 
 
-  1. Heifers : DFH
-
+  1.Heifers : DFH  
+    variables in the columns  
    | LineNo | Group | Stage | Cowcode | CowGroup | cowidNo | birthday | parity | age_in_day | age_in_month | AItimes | firstAI_date | fstAI_age_in_month | lastAI_date | daysfrmlstAI | expDateofnextCalving | openmonths | base_date|
 
    | LineNo | Group | Stage | 牛ｺｰﾄﾞ | 牛群 | 個体識別番号 | 生年月日 | 産次 | 日齢 | 月齢 | 授精回数 | 初回授精日 | 初回授精月齢 | 最終授精日 | 授精後日数 | 分娩予定日 | 空胎月数 | 基準日 |
@@ -36,11 +36,13 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(tidyverse)
-library(readr)
+#library(readr)
 library(rpdtls)
 ```
-
-```{r ttl}
+#データフレームの取り込み　*経産牛 Cow
+-----------------------------------------------------------------------------
+酪農場の繁殖対象経産牛のリストをcsvファイルで作成し、データフレームDFとして読み込む。
+```{r DF}
 DF <- readr::read_csv( "../data-raw/20230212Cow01.csv",
                        col_types = list(vroom::col_integer(),
                                         #LineNo
@@ -77,13 +79,13 @@ DF <- readr::read_csv( "../data-raw/20230212Cow01.csv",
 
 str(DF)
 head(DF)
-
-#str("../data/DF")
-#head("../data/DF")
-
-# 累計受胎率　=　(受胎頭数/(授精回数 - 妊否不明授精回数))*100(%)
-#	　　ttlCR = (hsofPreg/(sNofAIs - sPUnkNofAIs)*100 %
-
+```
+#牛群全体成績　*経産牛 Cow
+----------------------------------------------------------------------------
+##全体受胎率　=　(受胎頭数/(授精回数 - 妊否不明授精回数))*100(%) 
+*経産牛 Cow  
+*ttlCR = (hsofPreg/(sNofAIs - sPUnkNofAIs)*100 %
+```{r CR}
 #受胎頭数
 hsofpreg <- hsofpreg(DF)
 hsofpreg
@@ -96,23 +98,338 @@ sofaitimes
 nofunkpr_ai <- nofunkpr_ai(DF)
 nofunkpr_ai
 
-#累計受胎率
+#全体受胎率
 ttlCR <- ttlcr(DF)
 ttlCR
-
-# 累計人工授精率 =  ((授精回数 - 妊不明の授精回数)/
-#                         (サイクル数 - 妊不明のサイクル数))*100(%) 
-
-#サイクル数の合計 VWP = 50
-sofcycles <- sofcycles(DF, 50)
+```
+##全体人工授精率 =  ((授精回数 - 妊不明の授精回数)/(サイクル数 - 妊不明のサイクル数))*100(%)  
+*経産牛 Cow
+```{r AIR}
+#VWP = 50 days
+VWP <- 50
+#サイクル数の合計 
+sofcycles <- sofcycles(DF, VWP)
 sofcycles
 
-#妊不明サイクル数の合計
-snofunkpr_cycles <- snofunkpr_cycles(DF, 50)
+#妊不明サイクル数の合計 
+snofunkpr_cycles <- snofunkpr_cycles(DF, VWP)
 snofunkpr_cycles
 
-#累計人工授精率(%)
-ttlAIR <- ttlair(DF, 50)
+#全体人工授精率(%) 
+ttlAIR <- ttlair(DF, VWP)
 ttlAIR
+```
+##全体妊娠率 = 累計人工授精率 * 累計受胎率 * 100(%)  
+= ((授精回数 - 妊不明の授精回数)/(サイクル数 - 妊不明のサイクル数)) *   
+(受胎頭数/(授精回数 - 妊否不明授精回数))*100(%)  
+*経産牛 Cow
+```{r PR}
+ttlPR <- ttlpr(DF, VWP)
+ttlPR
+
+```
+##JMR = sJMR/n (JMR合計/頭数)           *経産牛 Cow
+```{r JMR}
+JMR <- jmr(DF,VWP)
+JMR
+```
+#直近3週間の成績 *経産牛 Cow
+----------------------------------------------------------------------------
+##3週間受胎率 = (3週間妊娠頭数/(3週間授精回数 - 3週間妊不明授精回数)) * 100(%)  
+*経産牛 Cow
+```{r 3wksCR}
+# 3週間妊娠頭数 the number of pregnant cows in the last 3 weeks
+hsofp_lst3wks <- hsofp_lst3wks(DF)
+hsofp_lst3wks
+
+# 3週間授精回数 the sum of AI in the last 3weeks
+sofai_lst3wks <- sofai_lst3wks(DF)
+sofai_lst3wks
+
+# 3週間妊不明授精回数 the sum of unknown pregnant AI in the last 3 weeks
+sofunkp_ai_lst3wks <- sofunkp_ai_lst3wks(DF)
+sofunkp_ai_lst3wks
+
+# 3週間受胎率 the conception rate in the last 3 weeks
+cr_3wks <- cr_3wks(DF)
+cr_3wks
+
+```
+##3週間人工授精率 =  ((3週間授精回数 - 3週間妊不明授精回数)/  
+   (3週間サイクル数 - 妊不明の3週間サイクル数))*100(%)  
+*経産牛 Cow
+```{r 3wksair}
+# 3週間サイクル数 the sum of cycles in the last 3weeks
+sofcycls_3wks <- sofcycls_3wks(DF)
+sofcycls_3wks
+
+# 3週間の妊不明サイクル数 the sum of unknown pregnant cycles in the last 3 weeks
+sofunkpcycls_3wks <- sofunkpcycls_3wks(DF)
+sofunkpcycls_3wks
+
+# 3週間人工授精率 the AI rate in the last 3 weeks
+air_3wks <- air_3wks(DF)
+air_3wks
+
+```
+##3週間妊娠率 = 3週間人工授精率 * 3週間受胎率 * 100(%)  
+    = ((3週間授精回数 - 3週間妊不明授精回数)/(3週間サイクル数 - 3週間妊不明サイクル数)) *   
+        (3週間受胎頭数/(3週間授精回数 -3週間妊不明授精回数))*100(%)  
+    = (3週間受胎頭数/(3週間サイクル数 - 3週間妊不明サイクル数))*100(%)  
+*経産牛 Cow
+```{r 3wkspr}
+pr_3wks <- pr_3wks(DF)
+pr_3wks
+
+```
+#繁殖成績をtibbleに収納する  
+--------------------------------------------------------------------------  
+*経産牛 Cow
+```{r tbbl}
+#基準日 base date
+bdate <- bdate(DF)
+bdate
+
+# 繁殖対象頭数 number of heads to reproduce
+nofhd <- nofhd(DF)
+nofhd
+
+# 全体成績
+RPDtblttl <- tibble( 基準日 = c(bdate), 頭数 = c(nofhd), 
+                      人工授精率 = c(ttlAIR), 受胎率 = c(ttlCR), 
+                      妊娠率 = c(ttlPR), JMR = c(JMR))
+RPDtblttl
+
+# 3週間成績
+RPDtbl3wks <- tibble( 基準日 = c(bdate), 頭数 = c(nofhd), 
+                       人工授精率 = c(air_3wks), 受胎率 = c(cr_3wks), 
+                       妊娠率 = c(pr_3wks), 発情機会数 = c(sofcycls_3wks), 
+                       人工授精回数= c(sofai_lst3wks), 
+                       受胎頭数 = c(hsofp_lst3wks))
+RPDtbl3wks
+
+```
+#csvファイルを作成  
+-----------------------------------------------------------------------------  
+*経産牛 Cow  
+カレントディレクトリーに、新規にcsvファイル"RPDttl2023.csv"を作成し、  
+tibbleのデータを収納する。 *)コメントアウト中
+```{r csv}
+# 全体成績
+#write_excel_csv(RPDtblttl, "RPDttl2023.csv", append = FALSE) 
+
+# 3週間成績
+#write_excel_csv(RPDtbl3wks, "RPD3wks2023.csv", append = FALSE) 
+
+```
+#データを追加  
+------------------------------------------------------------------------------  
+*経産牛 Cow  
+csvファイル"RPDttl2023.csv"にtibbleのデータを追加する。　*)コメントアウト中
+```{r add}
+# 全体成績
+#write_excel_csv(RPDtblttl, "RPDttl2023.csv", append = TRUE) 
+
+# 3週間成績
+#write_excel_csv(RPDtbl3wks, "RPD3wks2023.csv", append = TRUE) 
+
+```
+
+#データフレームの取り込み　*未経産牛 Heifer
+-----------------------------------------------------------------------------
+酪農場の繁殖対象未経産牛のリストをcsvファイルで作成し、データフレームDFHとして読み込む。
+```{r DFH}
+DFH <- readr::read_csv( "../data-raw/20230212Heifer01.csv",
+                       col_types = list(vroom::col_integer(),
+                                        #LineNo
+                                        vroom::col_integer(),
+                                        #Group
+                                        vroom::col_character(),
+                                        #Stage
+                                        vroom::col_integer(),
+                                        #cowCode
+                                        vroom::col_character(),
+                                        #cowGroup
+                                        vroom::col_character(),
+                                        #cowidNo
+                                        vroom::col_date( format = "%Y/%m/%d" ),
+                                        #birthday
+                                        vroom::col_integer(),  #parity
+                                        vroom::col_integer(),
+                                        #age_in_day
+                                        vroom::col_double(),  #age_in_month
+                                        vroom::col_integer(),  #AItimes
+                                        vroom::col_date( format = "%Y/%m/%d" ),
+                                        #firstAI_date
+                                        vroom::col_double(),
+                                        #fstAI_age_in_month
+                                        vroom::col_date( format = "%Y/%m/%d" ),
+                                        #lastAI_date
+                                        vroom::col_integer(),  #daysfrmlstAI
+                                        vroom::col_date( format = "%Y/%m/%d" ),
+                                        #expDateofnextCalving
+                                        vroom::col_double(),
+                                        #openmonths : open heifer in month
+                                        vroom::col_date( format = "%Y/%m/%d" )))
+                                        #base_date
+
+str(DFH)
+head(DFH)
+
+```
+#牛群全体成績　*未経産牛 Heifer
+----------------------------------------------------------------------------
+##全体受胎率　=　(受胎頭数/(授精回数 - 妊否不明授精回数))*100(%)  
+*ttlCR = (hsofPreg/(sNofAIs - sPUnkNofAIs)*100 %  
+  
+*未経産牛 Heifer  
+```{r CRH}
+#受胎頭数
+hsofpregH <- hsofpreg(DFH)
+hsofpregH
+
+#授精回数の合計
+sofaitimesH <- sofaitimes(DFH)
+sofaitimesH
+
+#妊否不明の授精回数
+nofunkpr_aiH <- nofunkpr_ai(DFH)
+nofunkpr_aiH
+
+#全体受胎率
+ttlCRH <- ttlcr(DFH)
+ttlCRH
+```
+##全体人工授精率 = ((授精回数 - 妊不明の授精回数)/(サイクル数 - 妊不明のサイクル数))*100(%)  
+  
+*未経産牛 Heifer
+```{r AIRH}
+#VWPH = 13 months
+VWPH <- 13
+#サイクル数の合計
+sofcyclesH <- sofcyclesH(DFH, VWPH)
+sofcyclesH
+
+#妊不明サイクル数の合計
+snofunkpr_cyclesH <- snofunkpr_cyclesH(DFH, VWPH)
+snofunkpr_cyclesH
+
+#全体人工授精率(%)
+ttlAIRH <- ttlairH(DFH, VWPH)
+ttlAIRH
+```
+##全体妊娠率 = 累計人工授精率 * 累計受胎率 * 100(%)    
+= ((授精回数 - 妊不明の授精回数)/(サイクル数 - 妊不明のサイクル数)) *   
+(受胎頭数/(授精回数 - 妊否不明授精回数))*100(%)  
+  
+*未経産牛 Heifer
+```{r PRH}
+ttlPRH <- ttlprH(DFH, VWPH)
+ttlPRH
+
+```
+##JMR = sJMR/n (JMR合計/頭数)   
+*未経産牛 Heifer
+```{r JMRH}
+JMRH <- jmrH(DFH,VWPH)
+JMRH
+```
+#直近3週間の成績 *未経産牛 Heifer                               
+----------------------------------------------------------------------------
+##3週間受胎率 = (3週間妊娠頭数/(3週間授精回数 - 3週間妊不明授精回数)) * 100(%)  
+*未経産牛 Heifer
+```{r 3wksCRH}
+# 3週間妊娠頭数 the number of pregnant cows in the last 3 weeks
+hsofp_lst3wksH <- hsofp_lst3wks(DFH)
+hsofp_lst3wksH
+
+# 3週間授精回数 the sum of AI in the last 3weeks
+sofai_lst3wksH <- sofai_lst3wks(DFH)
+sofai_lst3wksH
+
+# 3週間妊不明授精回数 the sum of unknown pregnant AI in the last 3 weeks
+sofunkp_ai_lst3wksH <- sofunkp_ai_lst3wks(DFH)
+sofunkp_ai_lst3wksH
+
+# 3週間受胎率 the conception rate in the last 3 weeks
+cr_3wksH <- cr_3wks(DFH)
+cr_3wksH
+```
+##3週間人工授精率 =  ((3週間授精回数 - 3週間妊不明授精回数)/  
+   (3週間サイクル数 - 妊不明の3週間サイクル数))*100(%)  
+*未経産牛 Heifer
+```{r 3wksairH}
+# 3週間サイクル数 the sum of cycles in the last 3weeks
+sofcycls_3wksH <- sofcycls_3wks(DFH)
+sofcycls_3wksH
+
+# 3週間の妊不明サイクル数 the sum of unknown pregnant cycles in the last 3 weeks
+sofunkpcycls_3wksH <- sofunkpcycls_3wks(DFH)
+sofunkpcycls_3wksH
+
+# 3週間人工授精率 the AI rate in the last 3 weeks
+air_3wksH <- air_3wks(DFH)
+air_3wksH
+
+```
+##3週間妊娠率 = 3週間人工授精率 * 3週間受胎率 * 100(%)  
+    = ((3週間授精回数 - 3週間妊不明授精回数)/(3週間サイクル数 - 3週間妊不明サイクル数)) *   
+        (3週間受胎頭数/(3週間授精回数 -3週間妊不明授精回数))*100(%)  
+    = (3週間受胎頭数/(3週間サイクル数 - 3週間妊不明サイクル数))*100(%)  
+*未経産牛 Heifer
+```{r 3wksprH}
+pr_3wksH <- pr_3wks(DFH)
+pr_3wksH
+```
+#繁殖成績をtibbleに収納する  
+--------------------------------------------------------------------------  
+*未経産牛 Heifer
+```{r tbblH}
+#基準日 base date
+bdateH <- bdate(DFH)
+bdateH
+
+# 繁殖対象頭数 number of heads to reproduce
+nofhdH <- nofhd(DFH)
+nofhdH
+
+# 全体成績
+RPDtblttlH <- tibble( 基準日 = c(bdateH), 頭数 = c(nofhdH), 
+                      人工授精率 = c(ttlAIRH), 受胎率 = c(ttlCRH), 
+                      妊娠率 = c(ttlPRH), JMR = c(JMRH))
+RPDtblttlH
+
+# 3週間成績
+RPDtbl3wksH <- tibble( 基準日 = c(bdateH), 頭数 = c(nofhdH), 
+                       人工授精率 = c(air_3wksH), 受胎率 = c(cr_3wksH), 
+                       妊娠率 = c(pr_3wksH), 発情機会数 = c(sofcycls_3wksH), 
+                       人工授精回数= c(sofai_lst3wksH), 
+                       受胎頭数 = c(hsofp_lst3wksH))
+RPDtbl3wksH
+
+```
+#csvファイルを作成  
+-----------------------------------------------------------------------------  
+*未経産牛 Heifer
+カレントディレクトリーに、新規にcsvファイル"RPDttl2023H.csv"を作成し、  
+tibbleのデータを収納する。　　　*)コメントアウト中
+```{r csvH}
+# 全体成績
+#write_excel_csv(RPDtblttlH, "RPDttl2023H.csv", append = FALSE) 
+
+# 3週間成績
+#write_excel_csv(RPDtbl3wksH, "RPD3wks2023H.csv", append = FALSE) 
+
+```
+#データを追加  
+------------------------------------------------------------------------------  
+*未経産牛 Heifer  
+csvファイル"RPDttl2023H.csv"にtibbleのデータを追加する。　　*)コメントアウト中
+```{r addH}
+# 全体成績
+#write_excel_csv(RPDtblttlH, "RPDttl2023H.csv", append = TRUE) 
+
+# 3週間成績
+#write_excel_csv(RPDtbl3wksH, "RPD3wks2023H.csv", append = TRUE) 
 
 ```

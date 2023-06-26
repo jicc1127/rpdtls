@@ -1,6 +1,6 @@
 ## code to prepare `DATASET` dataset goes here
 library(tidyverse)
-library(readr)
+#library(readr)
 
 DFH <- readr::read_csv( "data-raw/20230212Heifer01.csv",
                        col_types = list(vroom::col_integer(),
