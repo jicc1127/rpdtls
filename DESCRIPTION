@@ -1,6 +1,6 @@
 Package: rpdtls
 Title: Organize reproductive data on dairy or beef cattles' farm
-Version: 0.0.0.9000
+Version: 1.0.0
 Authors@R: 
     person("Jun", "Inoue", , "inouecowclinic@gmail.com", role = c("aut", "cre"))
 Description: Convenience functions to organize reproductive data.
